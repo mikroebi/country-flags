@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/mikroebi/country-flags/static/css/main.ec0d757f.css",
-    "main.js": "/mikroebi/country-flags/static/js/main.40c79c62.js",
+    "main.css": "/mikroebi/country-flags/static/css/main.92b234f5.css",
+    "main.js": "/mikroebi/country-flags/static/js/main.5cb94adf.js",
     "static/js/453.f6bc7a37.chunk.js": "/mikroebi/country-flags/static/js/453.f6bc7a37.chunk.js",
     "index.html": "/mikroebi/country-flags/index.html",
-    "main.ec0d757f.css.map": "/mikroebi/country-flags/static/css/main.ec0d757f.css.map",
-    "main.40c79c62.js.map": "/mikroebi/country-flags/static/js/main.40c79c62.js.map",
+    "main.92b234f5.css.map": "/mikroebi/country-flags/static/css/main.92b234f5.css.map",
+    "main.5cb94adf.js.map": "/mikroebi/country-flags/static/js/main.5cb94adf.js.map",
     "453.f6bc7a37.chunk.js.map": "/mikroebi/country-flags/static/js/453.f6bc7a37.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ec0d757f.css",
-    "static/js/main.40c79c62.js"
+    "static/css/main.92b234f5.css",
+    "static/js/main.5cb94adf.js"
   ]
 }
