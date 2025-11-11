@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/mikroebi/country-flags/static/css/main.92b234f5.css",
-    "main.js": "/mikroebi/country-flags/static/js/main.5cb94adf.js",
-    "static/js/453.f6bc7a37.chunk.js": "/mikroebi/country-flags/static/js/453.f6bc7a37.chunk.js",
-    "index.html": "/mikroebi/country-flags/index.html",
-    "main.92b234f5.css.map": "/mikroebi/country-flags/static/css/main.92b234f5.css.map",
-    "main.5cb94adf.js.map": "/mikroebi/country-flags/static/js/main.5cb94adf.js.map",
-    "453.f6bc7a37.chunk.js.map": "/mikroebi/country-flags/static/js/453.f6bc7a37.chunk.js.map"
+    "main.css": "/country-flags/static/css/main.92b234f5.css",
+    "main.js": "/country-flags/static/js/main.cc903ab4.js",
+    "static/js/453.f6bc7a37.chunk.js": "/country-flags/static/js/453.f6bc7a37.chunk.js",
+    "index.html": "/country-flags/index.html",
+    "main.92b234f5.css.map": "/country-flags/static/css/main.92b234f5.css.map",
+    "main.cc903ab4.js.map": "/country-flags/static/js/main.cc903ab4.js.map",
+    "453.f6bc7a37.chunk.js.map": "/country-flags/static/js/453.f6bc7a37.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.92b234f5.css",
-    "static/js/main.5cb94adf.js"
+    "static/js/main.cc903ab4.js"
   ]
 }
