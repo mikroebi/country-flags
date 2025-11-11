@@ -1,21 +1,42 @@
 import { create } from 'zustand';
 import axios from 'axios';
 
-const useStore = create((set) => ({
+const useStore = create((set, get) => ({
   countries: [],
   filteredCountries: [],
+  selectedCountry: null,
   loading: true,
   error: null,
   searchQuery: '',
 
   fetchCountries: async () => {
+    if (get().countries.length > 0) {
+      set({ loading: false });
+      return;
+    }
     try {
-      const response = await axios.get('https://gist.githubusercontent.com/anubhavshrimal/75f6183458db8c453306f93521e93d37/raw/f77e7598a8503f1f70528ae1cbf9f66755698a16/CountryCodes.json');
-      const countriesWithFlags = response.data.map(country => ({
-        ...country,
-        flag: `https://flagcdn.com/w320/${country.code.toLowerCase()}.png`
-      }));
-      set({ countries: countriesWithFlags, filteredCountries: countriesWithFlags, loading: false });
+      set({ loading: true });
+      const response = await axios.get('https://restcountries.com/v3.1/all?fields=name,cca2,flags,idd,capital,population,region');
+      
+      const formattedCountries = response.data
+        .filter(country => country.idd.root) // Ensure country has a phone code
+        .map(country => ({
+          name: country.name.common,
+          code: country.cca2,
+          flag: country.flags.png,
+          dial_code: `${country.idd.root}${country.idd.suffixes ? country.idd.suffixes[0] : ''}`,
+          capital: country.capital ? country.capital[0] : 'N/A',
+          population: country.population.toLocaleString(),
+          region: country.region,
+        }))
+        .sort((a, b) => a.name.localeCompare(b.name)); // Sort countries alphabetically
+
+      set({ 
+        countries: formattedCountries, 
+        filteredCountries: formattedCountries, 
+        loading: false 
+      });
+
     } catch (error) {
       set({ error: 'Error fetching data', loading: false });
     }
@@ -23,10 +44,16 @@ const useStore = create((set) => ({
 
   setSearchQuery: (query) => {
     set({ searchQuery: query });
-    const filtered = useStore.getState().countries.filter(country =>
-      country.name.toLowerCase().includes(query.toLowerCase())
+    const filtered = get().countries.filter(country =>
+      country.name.toLowerCase().includes(query.toLowerCase()) ||
+      country.dial_code.includes(query)
     );
     set({ filteredCountries: filtered });
+  },
+
+  selectCountry: (countryCode) => {
+    const country = get().countries.find(c => c.code === countryCode);
+    set({ selectedCountry: country });
   },
 }));
 
